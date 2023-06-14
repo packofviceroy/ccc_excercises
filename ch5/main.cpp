@@ -54,9 +54,17 @@ struct Logger{
 };
 
 struct ConsoleLogger:Logger{
+    ConsoleLogger(std::string s):appending_string{s}{}
+    ConsoleLogger():appending_string{}{}
+
     void printLogs(long from, long to, double amount) override{
         std::cout << "[log] Transfered " << amount << " From " << from << " To " << to << std::endl;
+        if (appending_string.length() !=0)
+            std::cout << "With message: " << appending_string << std::endl;
     }
+
+private:
+    std::string appending_string;
 };
 
 struct FileLogger:Logger {
@@ -92,6 +100,11 @@ struct Bank {
         logger = new_logger;
     }
 
+    void getAccountBalance(long id)
+    {
+        db->printAccount(id);
+    }
+
 private:
     Logger* logger;
     AccountDatabase* db;
@@ -99,6 +112,9 @@ private:
 
 
 int main() {
+
+    //Test inheriting of static members of
+    // parent class
     std::cout << "Hello, World!" << std::endl;
     DerivedStruct a1;
     DerivedStruct a2;
@@ -106,15 +122,32 @@ int main() {
     BaseStruct b1;
 
     b1.PrintCount();
+    //Task
+    FileLogger flog{"./log"};
+    ConsoleLogger cloger;
+    ConsoleLogger cloger2{"MONEY HAVE BEEN SENT"};
 
     InMemoryAccountDatabase mdb;
     mdb.add_account(99, 500);
     mdb.add_account(1, 56);
     mdb.add_account(13, 69);
-    mdb.add_account(13, 12);
-    FileLogger flog{"./log"};
+    mdb.add_account(14, 88);
 
-    Bank b = new Bank(mdb)
+
+    Bank b{&mdb};
+
+    b.makeTranfer(1, 13, 31);
+    b.getAccountBalance(13);
+    b.getAccountBalance(1);
+    b.setLogger(&cloger);
+    b.makeTranfer(99, 14, 100);
+    b.getAccountBalance(14);
+    b.setLogger(&flog);
+    b.makeTranfer(99, 1, 200);
+    b.getAccountBalance(1);
+    b.getAccountBalance(99);
+    b.setLogger(&cloger2);
+    b.makeTranfer(13, 1, 1);
 
     return 0;
 }
