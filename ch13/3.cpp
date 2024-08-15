@@ -1,30 +1,28 @@
 #include <iostream>
 #include <set>
+#include <cstring>
 
-bool comp(const char* s1, const char* s2){
+struct Comparator{
+    bool operator()(const char* s1, const char* s2){
     for (int i = 0; i < strlen(s1) && i < strlen(s2) ; i++){
         if (s1[i] == s2[i])
             continue;
-        return s1[i] > s2[i];
+        return s1[i] < s2[i];
     }
-    return false;
-}
+    return true;
+    }
+};
 
 int main(int argc, char* argv[]){
     
-    auto cmp = [](const char* s1, const char* s2){   
-     for (int i = 0; i < strlen(s1) && i < strlen(s2) ; i++){
-        if (s1[i] == s2[i])
-            continue;
-        return s1[i] > s2[i];
-    }
-    return false;
-    };
-    std::set<const char*, decltype(cmp)> abc;
+    std::set<const char*, Comparator> abc ;
 
     for (int i = 1; i < argc; i++){
         abc.insert(argv[i]);
     }
 
+    for (auto el : abc){
+        std::cout << el << std::endl;
+    }
     return 0;
 }

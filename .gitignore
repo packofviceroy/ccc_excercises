@@ -2,3 +2,4 @@
 */cmake-build-debug
 *.bin
 .DS_Store
+info.plist

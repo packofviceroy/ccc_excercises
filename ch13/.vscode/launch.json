@@ -8,7 +8,7 @@
             "name": "13.3 Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/13/3",
+            "program": "${workspaceFolder}/3.bin",
             "args": ["123","asd","b","555","t"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -16,5 +16,6 @@
             "externalConsole": false,
             "MIMode": "lldb"
         }
-    ]
+    ],
+    "preLaunchTask": "Build"
 }
