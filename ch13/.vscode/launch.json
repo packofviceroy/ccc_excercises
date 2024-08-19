@@ -1,21 +1,30 @@
 {
-    "name": "13 glava",
-    "type": "cppdbg",
-    "request": "launch",
-    "version": "0.2.0",
     "configurations": [
+        {
+            "name": "13.4-5 Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/4.bin",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Build"
+        },
         {
             "name": "13.3 Debug",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/3.bin",
-            "args": ["123","asd","b","555","t"],
+            "args": ["123","asd","b","555","t","12","321"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb"
-        }
-    ],
-    "preLaunchTask": "Build"
+            "MIMode": "lldb",
+            "preLaunchTask": "Build"
+        },
+    ]
 }

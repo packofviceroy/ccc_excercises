@@ -4,12 +4,7 @@
 
 struct Comparator{
     bool operator()(const char* s1, const char* s2){
-    for (int i = 0; i < strlen(s1) && i < strlen(s2) ; i++){
-        if (s1[i] == s2[i])
-            continue;
-        return s1[i] < s2[i];
-    }
-    return true;
+        return std::strcmp(s1, s2) < 0;
     }
 };
 
