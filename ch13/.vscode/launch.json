@@ -1,6 +1,19 @@
 {
     "configurations": [
         {
+            "name": "13.6 Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/6.bin",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Build"
+        },
+        {
             "name": "13.4-5 Debug",
             "type": "cppdbg",
             "request": "launch",
