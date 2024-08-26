@@ -1,17 +1,16 @@
 {
     "configurations": [
         {
-            "name": "14 main",
+            "name": "book",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/6.bin",
+            "program": "${workspaceFolder}/book.bin",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "Build"
+            "MIMode": "lldb"
         }
     ]
 }
