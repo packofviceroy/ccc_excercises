@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
-project(test_heritage)
+project(ch6)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(test_heritage main.cpp)
+add_executable(ch6 main.cpp Bank.h Accounts.h)
